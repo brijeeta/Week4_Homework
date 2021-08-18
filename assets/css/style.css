@@ -1,0 +1,50 @@
+header {
+    padding: 40px;
+    text-align: center;
+    color: black;
+    border-bottom: 30px #879274;
+}
+
+.large-font {
+    font-size: 3em;
+    text-align: center;
+}
+
+.start-button {
+    background: purple;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-size: 2em;
+    letter-spacing: 0.21px;
+    line-height: 16px;
+    max-width: 255px;
+    padding: 20px 20px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* transition-duration: 0.15s;
+    transition-property: background-color;
+    transition-timing-function: linear; */
+    margin-top: 0.6em;
+}
+
+.time {
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    font-weight: bold;
+}
+
+.score {
+    position: absolute;
+    top: 10px;
+    left: 0px;
+    color: purple;
+    font-weight: bold;
+}
+
+p {
+    margin-left: auto;
+    margin-right: auto;
+    width: 28em;
+}
