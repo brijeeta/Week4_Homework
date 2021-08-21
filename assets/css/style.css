@@ -1,50 +1,129 @@
-header {
-    padding: 40px;
-    text-align: center;
-    color: black;
-    border-bottom: 30px #879274;
-}
-
-.large-font {
-    font-size: 3em;
-    text-align: center;
-}
-
-.start-button {
-    background: purple;
-    border-radius: 8px;
-    color: white;
-    cursor: pointer;
-    font-size: 2em;
-    letter-spacing: 0.21px;
-    line-height: 16px;
-    max-width: 255px;
-    padding: 20px 20px;
-    text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* transition-duration: 0.15s;
-    transition-property: background-color;
-    transition-timing-function: linear; */
-    margin-top: 0.6em;
-}
-
-.time {
-    position: absolute;
-    top: 10px;
-    right: 50px;
-    font-weight: bold;
-}
-
-.score {
-    position: absolute;
-    top: 10px;
-    left: 0px;
-    color: purple;
-    font-weight: bold;
-}
-
-p {
-    margin-left: auto;
-    margin-right: auto;
-    width: 28em;
-}
+          :root {
+             --purple: #4C4BC5;
+             --hoverGreen: #99C54B;
+             --scorePurple: rgb(175, 164, 221);
+             --white: white;
+             --black: black;
+         }
+         
+         .container {
+             display: block;
+             width: 50%;
+             margin: auto;
+             margin-top: 25px;
+             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+         }
+         
+         button {
+             background: var(--purple);
+             border-radius: 7px;
+             color: var(--white);
+             cursor: pointer;
+             font-size: 1em;
+             line-height: 6px;
+             padding: 10px;
+             text-align: center;
+             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+             margin-top: 0.6em;
+             font-weight: bold;
+             margin-right: 14px;
+         }
+         
+         .timer {
+             position: absolute;
+             top: 10px;
+             right: 50px;
+             font-weight: bold;
+             font-style: italic;
+         }
+         
+         .score {
+             position: absolute;
+             top: 10px;
+             left: 0px;
+             color: var(--purple);
+             font-weight: bold;
+         }
+         
+         .questions p {
+             margin-left: auto;
+             margin-right: auto;
+             width: 28em;
+         }
+         
+         .questions {
+             padding: 40px;
+             text-align: center;
+             color: var(--black);
+             border-bottom: 4px solid var(--black);
+         }
+         
+         .questions h2 {
+             font-size: 24px;
+             font-weight: bold;
+         }
+         
+         .questions ul li {
+             font-size: 16px;
+             list-style: none;
+             margin-left: 300px;
+             background-color: var(--purple);
+             color: var(--white);
+             padding: 3px;
+             border-radius: 3px;
+             margin-top: 10px;
+             max-width: 130px;
+             cursor: pointer;
+         }
+         
+         .questions ul li:hover {
+             transform: scale(1.03);
+         }
+         
+         #selectedAnswer {
+             font-style: italic;
+             font-size: 15px;
+             color: var(--hoverGreen);
+             font-weight: bold;
+         }
+         
+         #submitInitials {
+             margin-top: 10px;
+             margin-bottom: 10px;
+             margin-left: 10px;
+         }
+         
+         .questions ol li {
+             margin-left: 355px;
+             font-size: 16px;
+             list-style: none;
+             background-color: var(--hoverGreen);
+             color: var(--black);
+             padding: 3px;
+             margin-top: 10px;
+             max-width: 130px;
+             font-weight: bold;
+             font-style: italic;
+         }
+         
+         ol {
+             list-style: none;
+             margin-left: -20px;
+         }
+         
+         .questions ol li::before {
+             background-color: var(--hoverGreen);
+             color: var(--black);
+         }
+         
+         .score button {
+             position: absolute;
+             left: 20px;
+             color: var(--white);
+             width: 10em;
+             font-size: 13px;
+         }
+         
+         .score button:hover {
+             transform: scale(1.03);
+         }
