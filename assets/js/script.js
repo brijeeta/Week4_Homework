@@ -223,45 +223,15 @@ function setScore() {
     submitInitials.addEventListener("click", function() {
         //  local variable to manipulate input
         initialsEntered = initialsInput.value;
+        console.log("initals entered : " + initialsEntered);
 
         // if nothing is entered, log a message
-        if (initialsEntered === null) {
+        if (!initialsEntered.length) {
             console.log("initials invalid");
-
 
         } else {
             // otherwise create an object to save the score
-
-            // finalscore object
-            var finalScore = {
-                score: secondsLeft,
-                name: initialsEntered
-            }
-            console.log(finalScore);
-
-            // pull all scores from local storage if there are multiple logged there
-            allScores = localStorage.getItem("allScores");
-            if (allScores === null) {
-                // set all scores to be an array if nothing stored
-                allScores = [];
-
-                // otherwise create an object from info stored
-            } else {
-                allScores = JSON.parse(allScores);
-            }
-
-            // add a user's score to the all scores array
-            allScores.push(finalScore);
-
-            // store a string that includes all scores
-            var newScore = JSON.stringify(allScores);
-            localStorage.setItem("allScores", newScore);
-
-            // retrieve score and initials from local storage and sort
-            orderedScores = allScores.sort(function(a, b) {
-                return b.score - a.score;
-            })
-            console.log(orderedScores);
+            saveScore();
             // get the final score from local storage
             getScore();
         }
@@ -269,76 +239,11 @@ function setScore() {
     });
 }
 
-// Update the final score page
-function scorePage() {
-    // clear divs
-    quizQueriess.innerHTML = "";
-    timerEl.innerHTML = "";
-
-    // add a header
-    var endHeader = document.createElement("h1");
-    endHeader.setAttribute("id", "endHeader");
-    endHeader.textContent = "End of Quiz!";
-    // render on page
-    quizQueries.appendChild(endHeader);
-
-    // add a paragraph to show score
-    var scoreContent = document.createElement("p");
-    scoreContent.setAttribute("id", "scoreContent");
-    quizQueries.appendChild(scoreContent);
-
-    // set score and add to paragraph
-    if (secondsLeft >= 0) {
-        var timeLeft = secondsLeft;
-        clearInterval(timerInterval);
-        scoreContent.textContent = "Your final score is: " + timeLeft;
-    }
-
-    // get initials input
-    var initialsHere = document.createElement("label");
-    initialsHere.setAttribute("id", "initialsHere");
-    initialsHere.textContent = "Add your initials here:  ";
-
-    initialsInput = document.createElement("input");
-    initialsInput.setAttribute("type", "text");
-    initialsInput.setAttribute("id", "initialsInput");
-    initialsInput.textContent = "";
-
-    // render on page
-    quizQueries.appendChild(initialsHere);
-    quizQueries.appendChild(initialsInput);
-
-    // create submit button
-    var submitBtn = document.createElement("button");
-    submitBtn.setAttribute("id", "submit");
-    submitBtn.textContent = "Submit";
-
-    // render to page
-    quizQueries.appendChild(submitBtn);
-
-    // add event listener to submit button to send score and initials to local storage
-    submitBtn.addEventListener("click", function() {
-        // establish local variable to manipulate input
-        initialsEntered = initialsInput.value;
-
-        // if nothing is entered, log a message
-        if (initialsEntered === null) {
-            console.log("No valid entry");
-
-            // otherwise create an object and log it
-        } else {
-            saveScore();
-            getScore()
-        }
-    });
-}
-
 function saveScore() {
-    // clear the timer as game ended
-    clearInterval(timerInterval);
+
     var userScore = {
         score: secondsLeft,
-        initials: initialsEntered
+        name: initialsEntered
     }
     console.log(userScore);
 
@@ -374,7 +279,7 @@ function getScore() {
 
     // create ordered list of high scores
     highScoreHeader = document.createElement("h2");
-    highScoreHeader.setAttribute("id", "highScoreHeader");
+    highScoreHeader.setAttribute("id", "highScore");
     highScoreHeader.textContent = "High Scores!!";
     // render on page
     quizQueries.appendChild(highScoreHeader);
@@ -448,11 +353,10 @@ function clearHighScoreButton() {
         while (highScoreList.firstChild) {
             highScoreList.removeChild(highScoreList.firstChild);
         }
-
+        //  Play again text
         highScoreHeader.textContent = "Want to Play again?? Click on the Play Again Button!";
         quizQueries.appendChild(highScoreHeader);
         clearBtn.remove();
-
 
     })
 
